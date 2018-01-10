@@ -6,13 +6,16 @@
     <div class="row">
         <div class="col-md-8">
 
-            {!! Form::model($client, ['route' => ['clients.update', $client->id]]) !!}
-
-            @include('clients._fields')
+            {!! Form::model($client, ['route' => ['clients.update', $client->id],'method'=>'PUT']) !!}
 
             <div class="form-group">
-            {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
-            <a href="/clients" class="btn btn-success">Back to Clients</a>
+                {{ Form::label('ID:') }}
+                {{ Form::text('',$client->id,['class'=>'form-control']) }}
+            </div>
+            @include('clients._fields')
+            <div class="form-group">
+                {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
+                <a href="/clients" class="btn btn-success">Back to Clients</a>
             </div>
             {!! Form::close() !!}
         </div>

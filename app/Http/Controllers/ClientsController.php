@@ -51,8 +51,10 @@ class ClientsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $client = Client::find($id);
+        $client->update($request->all());
+        return redirect('clients');
 
-        dd("Hello World");
     }
 
     public function destroy($id)

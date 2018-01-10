@@ -11,7 +11,10 @@
             <h2>Client Detail</h2>
             <hr>
 
-            {!! link_to_route('clients.edit','', $client->id, ['class' => 'btn btn-primary btn-sm fa fa-pencil']) !!}
+            {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
+            {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-info btn-sm fa fa-pencil']) !!}
+            {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+            {!! Form::close() !!}
 
             <table class="table table-hover table-striped table-bordered mt-1">
                 <tr>
