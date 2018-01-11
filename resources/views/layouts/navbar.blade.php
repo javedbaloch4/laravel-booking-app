@@ -20,8 +20,8 @@
                     Rooms
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/clients/create">Add Room</a>
-                    <a class="dropdown-item" href="/clients">View Rooms</a>
+                    <a class="dropdown-item" href="/rooms/create">Add Room</a>
+                    <a class="dropdown-item" href="/rooms">View Rooms</a>
                 </div>
             </li>
         </ul>
