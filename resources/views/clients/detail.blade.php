@@ -11,14 +11,11 @@
             <h2>Client Detail</h2>
             <hr>
 
-            {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
-            {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-info btn-sm fa fa-pencil']) !!}
-            {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
-            {!! Form::close() !!}
-
+            <h3>Personal Details</h3>
+            <hr>
             <table class="table table-hover table-striped table-bordered mt-1">
                 <tr>
-                    <th>#ID</th>
+                    <th>#Client ID</th>
                     <td>{{ $client->id }}</td>
                 </tr>
 
@@ -36,8 +33,53 @@
                     <th>Phone</th>
                     <td>{{ $client->phone }}</td>
                 </tr>
+                <tr>
+                    <th>Registered At</th>
+                    <td>{{ $client->created_at->diffForHumans() }}</td>
+                </tr>
+                <tr>
+                    <th>Photo</th>
+                    <td>{{ $client->created_at }}</td>
+                </tr>
             </table>
-            <a href="/clients" class="btn btn-success">Back</a>
+            {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
+            <a href="/clients" class="btn btn-success btn-sm">Back</a>
+            {!! link_to_route('clients.edit', 'Edit', [$client->id], ['class'=>'btn btn-info btn-sm']) !!}
+            {{ Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+
+            <h3>Booking Details</h3>
+            <hr>
+
+            @if ($bookings)
+                <table class="table table-hover table-striped table-bordered mt-1">
+                    <thead>
+                    <tr>
+                        <th>#Booking ID</th>
+                        <th>Room</th>
+                        <th>Booked At</th>
+                        <th>Left At</th>
+                        <th>Booked By</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($bookings as $booking)
+                        <tr>
+                            <td>{{ $booking->id }}</td>
+                            <td><a href="/rooms/{{ $booking->room->id }}">{{ $booking->room->name }}</a></td>
+                            <td>{{ $booking->start_date }}</td>
+                            <td>{{ $booking->end_date }}</td>
+                            <td>Ali</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
+                </table>
+
+                {!! Form::close() !!}
         </div>
+        @else
+            <h2>{{ $client->name }} has not booked rooms yet</h2>
+        @endif
+
     </div>
 @endsection

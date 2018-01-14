@@ -7,13 +7,13 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <h2>Add Client</h2>
+            <h2><i class="fa fa-users"></i>Add Client</h2>
             <hr>
 
-           @include('errors.errors')
+            @include('errors.errors')
 
             {!! Form::open(['url' => 'clients']) !!}
-           @include('clients._fields')
+            @include('clients._fields')
             <div class="form-group">
                 {!! Form::submit('Add Client', ['class'=>'btn btn-primary']) !!}
                 <a href="/clients" class="btn btn-success">View Clients</a>

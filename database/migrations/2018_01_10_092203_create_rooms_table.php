@@ -15,6 +15,7 @@ class CreateRoomsTable extends Migration
             $table->string('floor');
             $table->string('type');
             $table->string('beds');
+            $table->boolean('status', 0);
             $table->timestamps();
         });
     }

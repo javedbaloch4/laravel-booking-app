@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Clients</h1>
+    <h2><i class="fa fa-users"></i>Clients</h2>
     <hr>
     <a href="/clients/create" class="btn btn-primary">Create</a>
     <br><br>
@@ -27,13 +27,12 @@
                 <td>{{ $client->phone }}</td>
                 <td>
                     {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
-                        {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-info btn-sm fa fa-pencil']) !!}
-                        {!! link_to_route('clients.show','',[$client->id], ['class'=>'btn btn-success btn-sm fa fa-bars'])  !!}
-                        {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to Delete?")'] )  }}
+                    {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-info btn-sm fa fa-pencil']) !!}
+                    {!! link_to_route('clients.show','',[$client->id], ['class'=>'btn btn-success btn-sm fa fa-bars'])  !!}
+                    {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to Delete?")'] )  }}
                     {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach
     </table>
-    {{ $clients->links() }}
 @endsection

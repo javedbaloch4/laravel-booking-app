@@ -9,7 +9,7 @@
     <div class="row">
 
         <div class="col-md-6 mt-3">
-            <h2>Add Room</h2>
+            <h2><i class="fa fa-plus-square-o"></i> Add Room</h2>
             <hr>
 
             @include('errors.errors')

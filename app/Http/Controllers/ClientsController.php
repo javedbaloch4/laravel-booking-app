@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use Illuminate\Http\Request;
 use App\Client;
 
@@ -10,8 +11,8 @@ class ClientsController extends Controller
 
     public function index()
     {
-        $client = Client::paginate(10);
-        return view('clients.index', ['clients' => $client]);
+        $clients = Client::all();
+        return view('clients.index', compact('clients'));
     }
 
     public function create()
@@ -31,7 +32,7 @@ class ClientsController extends Controller
 
         $client = Client::create($request->all());
 
-        $request->session()->flash('msg','Client has been added');
+        $request->session()->flash('msg', 'Client has been added');
 
         return redirect('/clients');
 
@@ -40,7 +41,9 @@ class ClientsController extends Controller
     public function show($id)
     {
         $client = Client::find($id);
-        return view('clients.detail', compact('client'));
+        $bookings = Booking::where('client_id', $id)->get()->all();
+
+        return view('clients.detail', compact('client', 'bookings'));
     }
 
     public function edit($id)
