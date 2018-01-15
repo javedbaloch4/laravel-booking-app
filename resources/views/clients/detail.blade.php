@@ -8,11 +8,10 @@
     <div class="row">
         <div class="col-md-12 mt-5">
 
-            <h2>Client Detail</h2>
+            <h2><i class="fa fa-user"></i> Client Detail</h2>
             <hr>
 
-            <h3>Personal Details</h3>
-            <hr>
+            <h3><i class="fa fa-user-circle-o"></i> Personal Details</h3>
             <table class="table table-hover table-striped table-bordered mt-1">
                 <tr>
                     <th>#Client ID</th>
@@ -46,9 +45,8 @@
             <a href="/clients" class="btn btn-success btn-sm">Back</a>
             {!! link_to_route('clients.edit', 'Edit', [$client->id], ['class'=>'btn btn-info btn-sm']) !!}
             {{ Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
-
-            <h3>Booking Details</h3>
             <hr>
+            <h3><i class="fa fa-calendar"></i> Booking Details</h3>
 
             @if ($bookings)
                 <table class="table table-hover table-striped table-bordered mt-1">

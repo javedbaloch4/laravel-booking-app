@@ -18,15 +18,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> Clients <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/clients/create">Add Client</a></li>
-                        <li><a href="/clients/">View Clients</a></li>
+                        <li><a href="/clients/create"><i class="fa fa-user-plus"></i> Add Client</a></li>
+                        <li><a href="/clients/"><i class="fa fa-table"></i> View Clients</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-hotel"></i> Rooms <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/rooms/create">Add Room</a></li>
-                        <li><a href="/rooms/">View Rooms</a></li>
+                        <li><a href="/rooms/create"><i class="fa fa-plus-square-o"></i> Add Room</a></li>
+                        <li><a href="/rooms/"><i class="fa fa-table"></i> View Rooms</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -32,7 +32,6 @@
 @section('script')
     <script>
         $('input.datepicker').Zebra_DatePicker({
-            format: 'Y-m-d H:i:s'
         });
     </script>
 @endsection

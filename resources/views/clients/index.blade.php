@@ -11,7 +11,8 @@
     <br><br>
 
     @include('errors.errors')
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
+        <thead>
         <tr>
             <th>#ID</th>
             <th>Name</th>
@@ -19,6 +20,8 @@
             <th>Phone</th>
             <th>Action</th>
         </tr>
+        </thead>
+        <tbody>
         @foreach ($clients as $client)
             <tr>
                 <td>{{ $client->id }}</td>
@@ -27,12 +30,13 @@
                 <td>{{ $client->phone }}</td>
                 <td>
                     {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
-                    {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-info btn-sm fa fa-pencil']) !!}
+                    {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-primary btn-sm fa fa-pencil']) !!}
                     {!! link_to_route('clients.show','',[$client->id], ['class'=>'btn btn-success btn-sm fa fa-bars'])  !!}
-                    {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to Delete?")'] )  }}
+                    {{ Form::button('<span class="fa fa-trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to Delete?")'] )  }}
                     {!! Form::close() !!}
                 </td>
             </tr>
+        </tbody>
         @endforeach
     </table>
 @endsection
