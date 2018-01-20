@@ -16,7 +16,6 @@ class BookingController extends Controller
         return view('bookings.index', compact('bookings'));
     }
 
-
     public function create()
     {
         $clients = Client::all();
@@ -45,7 +44,6 @@ class BookingController extends Controller
         session()->flash('msg','The Room Has been booked');
 
         return redirect('/booking');
-
     }
 
 

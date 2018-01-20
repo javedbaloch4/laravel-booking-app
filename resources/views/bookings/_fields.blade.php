@@ -5,11 +5,11 @@
             <option data-subtext="{{ $client->name }}" value="{{ $client->id }}">Client ID:{{ $client->id }}</option>
         @endforeach
     </select>
-    {{--{!! Form::select('client_id',[], null, ['class'=>'form-control']) !!}--}}
 </div>
 <div class="form-group">
     {!! Form::label('room','Room:') !!}
-    <select class="selectpicker form-control" data-live-search="true" title="Select Client" name="room_id">
+    <select class="selectpicker form-control" data-live-search="true"
+            title="@if ($rooms->count() == 0) No Room is available  @else Select Room @endif" name="room_id">
         @foreach ($rooms as $room)
             <option data-subtext="{{ $room->name }}" value="{{ $room->id }}">Room ID:{{ $room->id }}</option>
         @endforeach

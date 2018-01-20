@@ -7,6 +7,58 @@
 @section('content')
     <h2><i class="fa fa-calendar"></i> View Bookings</h2>
     <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong class="clearfix">Filters:</strong>
+            <div class="dropdown pull-left">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter by Date <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/booking">All</a></li>
+                    <li><a href="#">Today</a></li>
+                    <li><a href="#">Last Month</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown pull-left"> &nbsp;
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">By Rooms<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Today</a></li>
+                    <li><a href="#">Last Month</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown pull-left"> &nbsp;
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">By Beds <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Today</a></li>
+                    <li><a href="#">Last Month</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown pull-left"> &nbsp;
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">By Type <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Today</a></li>
+                    <li><a href="#">Last Month</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown pull-left"> &nbsp;
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">By Floor <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Today</a></li>
+                    <li><a href="#">Last Month</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <br>
     @include('errors.errors')
     <table class="table table-bordered table-hover">
         <thead>
@@ -34,7 +86,6 @@
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
                 <td>
-
                     {!! Form::open(['route'=>['rooms.destroy', $booking->id], 'method'=>'DELETE']) !!}
                     {!! link_to_route('booking.edit','',[$booking->id],['class'=>'fa fa-pencil btn btn-primary btn-sm']) !!}
                     {!! link_to_route('booking.show', '',[$booking->id],['class'=>'fa fa-bars btn btn-success btn-sm']) !!}
