@@ -16,6 +16,7 @@
                 <tr>
                     <th>#Client ID</th>
                     <td>{{ $client->id }}</td>
+                    <td rowspan="6"><img src="{{ $client->image }}" alt="" class="img img-responsive" style="width: 150px; margin: 30px auto;"></td>
                 </tr>
 
                 <tr>

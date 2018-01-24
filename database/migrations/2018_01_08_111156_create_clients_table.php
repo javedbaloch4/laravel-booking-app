@@ -13,6 +13,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('image');
             $table->timestamps();
         });
     }

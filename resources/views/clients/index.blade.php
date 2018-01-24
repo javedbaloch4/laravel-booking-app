@@ -18,6 +18,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Image</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -28,6 +29,7 @@
                 <td>{{ $client->name }}</td>
                 <td>{{ $client->email }}</td>
                 <td>{{ $client->phone }}</td>
+                <td width="100px"><img src="{{ $client->image }}" class="img img-responsive img-thumbnail" style="width: 50px;"></td>
                 <td>
                     {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
                     {!! link_to_route('clients.edit', '', [$client->id], ['class'=>'btn btn-primary btn-sm fa fa-pencil']) !!}

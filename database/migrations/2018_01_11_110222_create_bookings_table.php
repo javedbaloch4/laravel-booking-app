@@ -15,6 +15,7 @@ class CreateBookingsTable extends Migration
             $table->integer('room_id')->unsigned();
             $table->date('start_date');
             $table->date('end_date');
+
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('room_id')->references('id')->on('rooms');
 
