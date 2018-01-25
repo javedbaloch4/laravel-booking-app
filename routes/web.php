@@ -1,7 +1,7 @@
 <?php
 
     // Dashboard
-    Route::resource('dashboard','DashboardController');
+    Route::resource('/','DashboardController');
 
     // Clients
     Route::resource('clients','ClientsController');
