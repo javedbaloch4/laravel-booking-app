@@ -24,13 +24,24 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
 
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $image->move("uploads", $image->getClientOriginalName());
+        }
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required'
+            'phone' => 'required',
+            'image' => 'required'
         ]);
 
-        $client = Client::create($request->all());
+        Client::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'image' => $request->image = $request->image->getClientOriginalName()
+        ]);
 
         $request->session()->flash('msg', 'Client has been added');
 
@@ -55,7 +66,19 @@ class ClientsController extends Controller
     public function update(Request $request, $id)
     {
         $client = Client::find($id);
-        $client->update($request->all());
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $image->move("uploads", $image->getClientOriginalName());
+        }
+
+        $client->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'image' => $request->image = $request->image->getClientOriginalName()
+        ]);
+
         return redirect('clients');
 
     }

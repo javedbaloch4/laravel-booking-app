@@ -7,6 +7,7 @@
 @section('content')
 
     <h2><i class="fa fa-dashboard"></i> Dashboard</h2>
+    <span class="text-mute">Under Development</span>
     <hr>
 
     <div class="row">

@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2>Room Detail</h2>
+    <h2><i class="fa fa-table"></i> Room Detail</h2>
     <hr>
 
     <table class="table table-bordered table-striped">

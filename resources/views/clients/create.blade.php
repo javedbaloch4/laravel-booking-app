@@ -12,7 +12,7 @@
 
             @include('errors.errors')
 
-            {!! Form::open(['url' => 'clients']) !!}
+            {!! Form::open(['url' => 'clients','files'=>true]) !!}
             @include('clients._fields')
             <div class="form-group">
                 {!! Form::submit('Add Client', ['class'=>'btn btn-primary']) !!}
