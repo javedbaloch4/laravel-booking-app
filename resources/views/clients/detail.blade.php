@@ -16,12 +16,13 @@
                 <tr>
                     <th>#Client ID</th>
                     <td>{{ $client->id }}</td>
-                    <td rowspan="6"><img src="{{ $client->image }}" alt="" class="img img-responsive" style="width: 150px; margin: 30px auto;"></td>
+                    <th class="text-center">Photo</th>
                 </tr>
 
                 <tr>
                     <th>Name</th>
                     <td>{{ $client->name }}</td>
+                    <td rowspan="{{ $client->count() - 1 }}"><img src="{{ asset('uploads/'.$client->image) }}" alt="" class="img img-responsive" style="width: 150px; margin: 30px auto;"></td>
                 </tr>
 
                 <tr>
@@ -33,13 +34,15 @@
                     <th>Phone</th>
                     <td>{{ $client->phone }}</td>
                 </tr>
+
                 <tr>
                     <th>Registered At</th>
                     <td>{{ $client->created_at->diffForHumans() }}</td>
                 </tr>
+
                 <tr>
-                    <th>Photo</th>
-                    <td>{{ $client->created_at }}</td>
+                    <th>Updated At</th>
+                    <td>{{ $client->updated_at->diffForHumans() }}</td>
                 </tr>
             </table>
             {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}

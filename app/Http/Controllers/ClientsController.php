@@ -79,6 +79,8 @@ class ClientsController extends Controller
             'image' => $request->image = $request->image->getClientOriginalName()
         ]);
 
+        request()->session()->flash('msg','Client has been updated');
+
         return redirect('clients');
 
     }
@@ -86,6 +88,7 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         Client::destroy($id);
+        request()->session()->flash('msg','Client has been deleted');
         return redirect('clients');
     }
 }
