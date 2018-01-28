@@ -41,32 +41,40 @@ class BookingController extends Controller
         $room->status = 0;
         $room->save();
 
-        session()->flash('msg','The Room Has been booked');
+        session()->flash('msg', 'The Room Has been booked');
 
         return redirect('/booking');
     }
 
 
-    public function show(Booking $booking)
+    public function show($id)
     {
-        //
+        $booking = Booking::find($id);
+        return view('bookings.detail',compact('booking'));
     }
 
     public function edit(Booking $booking)
     {
         $booking = Booking::find($booking->id);
-        return view('bookings.edit');
+        $rooms = Room::all();
+        $clients = Client::all();
+        return view('bookings.edit', compact('booking', 'clients', 'rooms'));
     }
 
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->update($request->all());
+        $request->session()->flash('msg', 'Booking has been updated');
+        return redirect('/booking');
     }
 
 
-    public function destroy(Booking $booking)
+    public function destroy(Request $request, Booking $booking)
     {
-        //
+        Booking::destroy($booking->id);
+        $request->session()->flash('msg','Booking has been deleted');
+        return redirect('booking');
     }
 
 }

@@ -47,17 +47,18 @@ class RoomController extends Controller
         return view('rooms.edit', compact('room'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $room = Room::find($id);
         $room->update($request->all());
-        session()->flush('msg','Room has been updated');
+        session()->flush('msg', 'Room has been updated');
         return redirect('/rooms');
     }
 
     public function destroy(Room $room)
     {
         Room::destroy($room->id);
-        request()->session()->flash('msg','Room has been deleted');
+        request()->session()->flash('msg', 'Room has been deleted');
         return redirect('rooms');
     }
 }

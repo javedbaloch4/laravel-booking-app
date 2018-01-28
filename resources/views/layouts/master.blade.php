@@ -7,15 +7,17 @@
 
     <!-- Bootstrap CSS -->
     {{ Html::style("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css") }}
-{{--    {{ Html::style("css/bootstrap.min.css") }}--}}
+    {{--    {{ Html::style("css/bootstrap.min.css") }}--}}
     {{ Html::style('css/font-awesome.min.css') }}
     {{ Html::style('plugins/bootstrap-select/dist/css/bootstrap-select.css') }}
     {{ Html::style('plugins/Zebra_Datepicker/dist/css/bootstrap/zebra_datepicker.css') }}
+
     @yield('style')
     <title>@yield('title')</title>
 </head>
 <body>
 @include('layouts.navbar')
+
 <div class="container">
     @yield('content')
 </div>
@@ -25,9 +27,10 @@
 {{ Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js') }}
 {{ Html::script('plugins/bootstrap-select/dist/js/bootstrap-select.js') }}
 {{ Html::script('plugins/Zebra_Datepicker/dist/zebra_datepicker.min.js') }}
+
 @yield('script')
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.selectpicker').selectpicker();
     });
 </script>

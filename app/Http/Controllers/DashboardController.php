@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
+use App\Client;
 use App\Dashboard;
+use App\Room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        $client = new Client();
+        $room = new Room();
+        $booking  = new Booking();
+        return view('dashboard', compact('client','room','booking'));
     }
 
     public function create()

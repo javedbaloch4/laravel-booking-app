@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{$room->name}} Detail
+    {{$booking->name}} Detail
 @endsection
 
 @section('content')
@@ -10,36 +10,45 @@
     <hr>
 
     <table class="table table-bordered table-striped">
-
         <tr>
-            <th>#ID</th>
-            <td>{{ $room->id }}</td>
+            <th>#Booking ID</th>
+            <td>{{ $booking->client->id }}</td>
         </tr>
 
         <tr>
-            <th>Name</th>
-            <td>{{ $room->name }}</td>
+            <th>Client Name</th>
+            <td>{{ $booking->client->name }}</td>
         </tr>
 
         <tr>
-            <th>Type</th>
-            <td>{{ $room->type }}</td>
+            <th>Room</th>
+            <td>{{ $booking->room->id }}</td>
         </tr>
 
         <tr>
             <th>Floor</th>
-            <td>{{ $room->floor }}</td>
+            <td>{{ $booking->room->floor }}</td>
         </tr>
 
         <tr>
             <th>Type</th>
-            <td>{{ $room->type }}</td>
+            <td>{{ $booking->room->type }}</td>
+        </tr>
+
+        <tr>
+            <th>Booking At</th>
+            <td>{{ $booking->start_date }}</td>
+        </tr>
+
+        <tr>
+            <th>Booking End</th>
+            <td>{{ $booking->end_date }}</td>
         </tr>
 
     </table>
 
-    {!! Form::open(['route'=> ['rooms.destroy', $room->id], 'method'=>'DELETE']) !!}
-        {!! link_to_route('rooms.edit', '', $room->id, ['class'=>'btn btn-primary fa fa-pencil']) !!}
+    {!! Form::open(['route'=> ['booking.destroy', $booking->id], 'method'=>'DELETE']) !!}
+        {!! link_to_route('booking.edit', '', $booking->id, ['class'=>'btn btn-primary fa fa-pencil']) !!}
         {!! Form::button('',['type','submit','class'=>'btn btn-danger fa fa-trash', 'onclick'=>'return confirm("Are you sure you want to delete this?")']) !!}
         {!! link_to('/rooms', 'Back',['class'=>'btn btn-success btn-sm']) !!}
     {!! Form::close() !!}

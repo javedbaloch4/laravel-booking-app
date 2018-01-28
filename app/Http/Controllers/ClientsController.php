@@ -77,6 +77,7 @@ class ClientsController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'image' => $request->image = $request->image->getClientOriginalName()
+
         ]);
 
         request()->session()->flash('msg','Client has been updated');

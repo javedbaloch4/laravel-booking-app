@@ -19,6 +19,7 @@
             @include('rooms._fields')
 
             {{ Form::submit('Add Room', ['class'=>'btn btn-primary']) }}
+
             {!!  link_to('/rooms','back',['class'=>'btn btn-success'], $secure = null) !!}
 
             {{ Form::close() }}

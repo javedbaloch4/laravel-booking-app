@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Edit Client</h1>
+    <h1><i class="fa fa-pencil"></i> Edit Client</h1>
     <div class="row">
         <div class="col-md-8">
 

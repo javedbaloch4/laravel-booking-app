@@ -71,7 +71,7 @@
             <th>Type</th>
             <th>Booked At</th>
             <th>Booking End</th>
-            <th>Status</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -86,7 +86,7 @@
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
                 <td>
-                    {!! Form::open(['route'=>['rooms.destroy', $booking->id], 'method'=>'DELETE']) !!}
+                    {!! Form::open(['route'=>['booking.destroy', $booking->id], 'method'=>'DELETE']) !!}
                     {!! link_to_route('booking.edit','',[$booking->id],['class'=>'fa fa-pencil btn btn-primary btn-sm']) !!}
                     {!! link_to_route('booking.show', '',[$booking->id],['class'=>'fa fa-bars btn btn-success btn-sm']) !!}
                     {{ Form::button('', ['type'=>'submit','class'=>'btn btn-danger btn-sm fa fa-trash','onclick'=>'return confirm("Are you sure you want to delete this?")']) }}

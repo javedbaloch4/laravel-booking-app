@@ -19,7 +19,7 @@ For now this is a basic booking management system for hotels.
 
 ``` php artisan db:seed ```
 
-``` php artisan server ```
+``` php artisan serve ```
 
 ** localhost:8000/ **
 
