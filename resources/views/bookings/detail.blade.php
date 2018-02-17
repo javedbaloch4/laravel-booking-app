@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2>Room Detail</h2>
+    <h2><i class="fa fa-table"></i> Room Detail</h2>
     <hr>
 
     <table class="table table-bordered table-striped">
@@ -48,8 +48,8 @@
     </table>
 
     {!! Form::open(['route'=> ['booking.destroy', $booking->id], 'method'=>'DELETE']) !!}
-        {!! link_to_route('booking.edit', '', $booking->id, ['class'=>'btn btn-primary fa fa-pencil']) !!}
-        {!! Form::button('',['type','submit','class'=>'btn btn-danger fa fa-trash', 'onclick'=>'return confirm("Are you sure you want to delete this?")']) !!}
-        {!! link_to('/rooms', 'Back',['class'=>'btn btn-success btn-sm']) !!}
+    {!! link_to('/rooms', 'Back',['class'=>'btn btn-success btn-sm']) !!}
+    {!! link_to_route('booking.edit', 'Edit', $booking->id, ['class'=>'btn btn-info btn-sm']) !!}
+    {!! Form::button('Delete',['type','submit','class'=>'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to delete this?")']) !!}
     {!! Form::close() !!}
 @endsection

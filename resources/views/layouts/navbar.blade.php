@@ -34,6 +34,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/booking/create"><i class="fa fa-calendar-plus-o"></i> Book Room</a></li>
                         <li><a href="/booking"><i class="fa fa-calendar-check-o"></i> View Bookings</a></li>
+                        <li><a href="/bookings/canceled"><i class="fa fa-calendar-check-o"></i> Canceled Bookings</a></li>
                     </ul>
                 </li>
             </ul>

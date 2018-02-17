@@ -22,7 +22,9 @@
                 <tr>
                     <th>Name</th>
                     <td>{{ $client->name }}</td>
-                    <td rowspan="{{ $client->count() - 1 }}"><img src="{{ asset('uploads/'.$client->image) }}" alt="" class="img img-responsive" style="width: 150px; margin: 30px auto;"></td>
+                    <td rowspan="6"><img src="{{ asset('uploads/'.$client->image) }}" alt=""
+                                         class="img img-responsive"
+                                         style="width: 150px; margin: 30px auto;"></td>
                 </tr>
 
                 <tr>
@@ -48,7 +50,7 @@
             {!! Form::open(['route'=> ['clients.destroy', $client->id], 'method' => 'DELETE']) !!}
             <a href="/clients" class="btn btn-success btn-sm">Back</a>
             {!! link_to_route('clients.edit', 'Edit', [$client->id], ['class'=>'btn btn-info btn-sm']) !!}
-            {{ Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
+            {{ Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm','onclick'=>'return confirm("Are you sure you want to delete this?")'] )  }}
             <hr>
             <h3><i class="fa fa-calendar"></i> Booking Details</h3>
 

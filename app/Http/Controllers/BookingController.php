@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\CanceledBooking;
 use App\Client;
 use App\Room;
 use Illuminate\Http\Request;
@@ -18,9 +19,10 @@ class BookingController extends Controller
 
     public function create()
     {
+        $booking = new Booking();
         $clients = Client::all();
         $rooms = Room::where('status', 1)->get();
-        return view('bookings.create', compact('clients', 'rooms'));
+        return view('bookings.create', compact('clients', 'rooms', 'booking'));
     }
 
     public function store(Request $request)
@@ -33,8 +35,13 @@ class BookingController extends Controller
             'end_date' => 'required',
         ]);
 
-        // Dave into Database
-        Booking::create($request->all());
+        // Save into Database
+        Booking::create([
+            'client_id' => $request->client_id,
+            'room_id' => $request->room_id,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
 
         // Update Rooms status
         $room = Room::find($request->room_id);
@@ -50,7 +57,7 @@ class BookingController extends Controller
     public function show($id)
     {
         $booking = Booking::find($id);
-        return view('bookings.detail',compact('booking'));
+        return view('bookings.detail', compact('booking'));
     }
 
     public function edit(Booking $booking)
@@ -69,12 +76,27 @@ class BookingController extends Controller
         return redirect('/booking');
     }
 
-
     public function destroy(Request $request, Booking $booking)
     {
         Booking::destroy($booking->id);
-        $request->session()->flash('msg','Booking has been deleted');
+        $request->session()->flash('msg', 'Booking has been deleted');
         return redirect('booking');
+    }
+
+    public function cancel($room_id, $booking_id) {
+        $booking = Booking::find($booking_id);
+        $room = Room::find($room_id);
+        $booking->status = 0;
+        $room->status = 1;
+        $booking->save();
+        $room->save();
+        session()->flash('msg','Booking has been canceled');
+        return redirect('/booking');
+    }
+
+    public function canceledBookings() {
+        $canceledBookings = Booking::where('status', 0)->get();
+        return view('bookings.canceled', compact('canceledBookings'));
     }
 
 }

@@ -10,7 +10,6 @@ class RoomController extends Controller
 
     public function index()
     {
-//        $rooms = Room::paginate(10);
         $rooms = Room::all();
         return view('rooms.index', compact('rooms'));
     }
@@ -32,6 +31,8 @@ class RoomController extends Controller
 
         Room::create($request->all());
 
+        $request->session()->flash('msg', 'Room has been created');
+
         return redirect('/rooms');
     }
 
@@ -49,9 +50,16 @@ class RoomController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'floor' => 'required',
+            'type' => 'required',
+            'beds' => 'required'
+        ]);
+
         $room = Room::find($id);
         $room->update($request->all());
-        session()->flush('msg', 'Room has been updated');
+        $request->session()->flash('msg', 'Room has been updated');
         return redirect('/rooms');
     }
 

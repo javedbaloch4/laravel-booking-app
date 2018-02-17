@@ -9,6 +9,8 @@
     <div class="row">
         <div class="col-md-8">
 
+            @include('errors.errors')
+
             {!! Form::model($client, ['route' => ['clients.update', $client->id],'method'=>'PUT', 'files'=>true]) !!}
 
             @include('clients._fields')

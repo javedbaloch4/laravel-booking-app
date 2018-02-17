@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    View Rooms
+    Canceled Bookings
 @endsection
 
 @section('content')
@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($bookings as $booking)
+        @foreach ($canceledBookings as $booking)
             <tr>
                 <td>{{ $booking->id }}</td>
                 <td><a href="clients/{{ $booking->client->id }}">{{ $booking->client->name }}</a></td>
@@ -50,9 +50,6 @@
                         {{ Form::button('', ['type'=>'submit','class'=>'btn btn-danger btn-xs fa fa-trash','onclick'=>'return confirm("Are you sure you want to delete this?")','title' => 'Delete Booking']) }}
                         {!! Form::close() !!}
 
-                        {!! Form::open(['route'=>['booking.cancel', $booking->id, $booking->room_id]]) !!}
-                        {{ Form::button('', ['type'=>'submit','class'=>'btn btn-warning btn-xs fa fa-times-circle col-md-12','onclick'=>'return confirm("Are you sure you want to Cancel Booking?")', 'title' => 'Cancel Booking', 'style' => 'margin-top: 5px']) }}
-                        {!! Form::close() !!}
 
                     </div>
 

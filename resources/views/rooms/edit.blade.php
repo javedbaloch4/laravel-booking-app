@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2>Edit Rooms</h2>
+    <h2><i class="fa fa-pencil"></i> Edit Rooms</h2>
     <hr>
         {!! Form::model($room, ['route' => ['rooms.update',$room->id], 'method'=>'PUT']) !!}
         @include('rooms._fields')

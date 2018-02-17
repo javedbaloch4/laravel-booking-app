@@ -31,7 +31,6 @@
 
 @section('script')
     <script>
-        $('input.datepicker').Zebra_DatePicker({
-        });
+        $('input.datepicker').Zebra_DatePicker({});
     </script>
 @endsection

@@ -1,109 +1,26 @@
+// Image thumbnail
 $(document).ready(function () {
-    $('.wishlist span').text('');
-    $('.checklist span').text('');
-    $('.user span').text('');
-    $('.header-top-links .my_account a').css({'background-color': '#3ac3ff', 'color': '#FFF'});
+    $('#image').on('change', function () { //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            $('#thumb-output').html(''); //clear html of output element
+            var data = $(this)[0].files; //this file data
 
-    // Top nav (Wish list) toggle
-    $('.wishlist').hover(function () {
-        $('.my_account span').text('');
-        $('.wishlist span').text(' My Wish List');
-        $('.header-top-links .my_account a').css({'background-color': '#EEE', 'color': '#AAA'});
-    }, function () {
-        $('.wishlist span').text('');
-        $('.my_account span').text(' My Account');
-        $('.header-top-links .my_account a').css({'background-color': '#3ac3ff', 'color': '#FFF'});
+            $.each(data, function (index, file) { //loop though each file
+                if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
+                    var fRead = new FileReader(); //new filereader
+                    fRead.onload = (function (file) { //trigger function on successful read
+                        return function (e) {
+                            var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image element
+                            $('#thumb-output').append(img); //append image to output element
+                        };
+                    })(file);
+                    fRead.readAsDataURL(file); //URL representing the file's data.
+                }
+            });
 
-    });
-
-    // Top nav (Check out) toggle
-    $('.checklist').hover(function () {
-        $('.my_account span').text('');
-        $('.checklist span').text(' Checkout');
-        $('.header-top-links .my_account a').css({'background-color': '#EEE', 'color': '#AAA'});
-    }, function () {
-        $('.checklist span').text('');
-        $('.my_account span').text(' My Account');
-        $('.header-top-links .my_account a').css({'background-color': '#28abe3', 'color': '#FFF'});
-    });
-
-    // Top nav (AdminUser list) toggle
-    $('.user').hover(function () {
-        $('.my_account span').text('');
-        $('.user span').text(' Sign In');
-        $('.header-top-links .my_account a').css({'background-color': '#EEE', 'color': '#AAA'});
-    }, function () {
-        $('.user span').text('');
-        $('.my_account span').text(' My Account');
-        $('.header-top-links .my_account a').css({'background-color': '#28abe3', 'color': '#FFF'});
-    });
-
-    // Top nav (AdminUser list) toggle
-    $('.logout').hover(function () {
-        $('.my_account span').text('');
-        $('.logout span').text(' Logout');
-        $('.header-top-links .my_account a').css({'background-color': '#EEE', 'color': '#AAA'});
-    }, function () {
-        $('.logout span').text('');
-        $('.my_account span').text(' My Account');
-        $('.header-top-links .my_account a').css({'background-color': '#28abe3', 'color': '#FFF'});
-    });
-
-    // Shopping cart effect
-    $('#shopping-cart').click(function () {
-        $('header #sub-shopping-cart').slideToggle();
-    });
-
-    // Responsive menu effect
-    $('.menu-switch').click(function () {
-        $('header #responsive-menu ul').slideToggle();
-    });
-    $('.close').click(function () {
-        $('header #responsive-menu ul').slideUp();
-    });
-
-    // Header bar products slider
-    $(".owl-carousel").owlCarousel({
-        items: 3,
-        autoPlay: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 2,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: false,
-                loop: false
-            }
+        } else {
+            alert("Your browser doesn't support File API!"); //if File API is absent
         }
     });
-
-    // Featured Product Slider
-
-
-    // Hot Category Slider
-    $(".hot-category-slider").owlCarousel({
-        items: 1
-    });
-
-    // Collection Slider
-    $('.collection-slider').owlCarousel({
-        items: 1
-    });
-
 });
-
-$('.owl-prev').on('click', function () {
-    alert('Apna');
-});
-
-
-// =====================
-
-
-// Sign Up validation
