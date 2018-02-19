@@ -12,7 +12,7 @@
         <thead>
         <tr>
             <th>#ID</th>
-            <th>Name</th>
+            <th>name</th>
             <th>Type</th>
             <th>Floor</th>
             <th>Beds</th>
