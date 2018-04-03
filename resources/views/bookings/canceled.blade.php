@@ -4,6 +4,15 @@
     Canceled Bookings
 @endsection
 
+@section('search')
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Canceled Bookings">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+@endsection
+
 @section('content')
     <h2><i class="fa fa-calendar"></i> View Bookings</h2>
     <hr>
@@ -28,7 +37,7 @@
         @foreach ($canceledBookings as $booking)
             <tr>
                 <td>{{ $booking->id }}</td>
-                <td><a href="clients/{{ $booking->client->id }}">{{ $booking->client->name }}</a></td>
+                <td><a href="/clients/{{ $booking->client->id }}">{{ $booking->client->name }}</a></td>
                 <td>{{ $booking->room->name }}</td>
                 <td>{{ $booking->room->floor }}</td>
                 <td>{{ $booking->room->beds }}</td>

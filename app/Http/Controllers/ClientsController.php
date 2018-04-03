@@ -6,17 +6,26 @@ use App\Booking;
 use Illuminate\Http\Request;
 use App\Client;
 
+
 class ClientsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+
         // Find All clients and passing to clients
         $clients = Client::all();
 
         // Redirect to Clients page
         return view('clients.index', compact('clients'));
     }
+
+
 
     public function create()
     {

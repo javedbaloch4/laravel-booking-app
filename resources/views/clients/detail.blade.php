@@ -72,7 +72,7 @@
                             <td><a href="/rooms/{{ $booking->room->id }}">{{ $booking->room->name }}</a></td>
                             <td>{{ $booking->start_date }}</td>
                             <td>{{ $booking->end_date }}</td>
-                            <td>Ali</td>
+                            <td>{{ $booking->user->name }}</td>
                         </tr>
                     @endforeach
                     </tbody>

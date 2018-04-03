@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function index()
     {
         $bookings = Booking::all();
@@ -39,6 +44,7 @@ class BookingController extends Controller
         Booking::create([
             'client_id' => $request->client_id,
             'room_id' => $request->room_id,
+            'user_id' => auth()->user()->id,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
         ]);
@@ -87,8 +93,9 @@ class BookingController extends Controller
         $booking = Booking::find($booking_id);
         $room = Room::find($room_id);
         $booking->status = 0;
-        $room->status = 1;
+        $booking->user_id = auth()->id();
         $booking->save();
+        $room->status = 1;
         $room->save();
         session()->flash('msg','Booking has been canceled');
         return redirect('/booking');

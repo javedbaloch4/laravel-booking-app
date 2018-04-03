@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/bookings">
+                <a href="/booking">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/bookings/canceled">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -138,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="/booking">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

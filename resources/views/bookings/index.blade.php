@@ -4,6 +4,15 @@
     View Rooms
 @endsection
 
+@section('search')
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search In Bookings">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+@endsection
+
 @section('content')
     <h2><i class="fa fa-calendar"></i> View Bookings</h2>
     <hr>
@@ -20,6 +29,7 @@
             <th>Type</th>
             <th>Booked At</th>
             <th>Booking End</th>
+            <th>Booked By</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
@@ -35,6 +45,7 @@
                 <td>{{ $booking->room->type }}</td>
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
+                <td>{{ $booking->user->name }}</td>
                 <td>
                     @if ($booking->status)
                         <label class="label label-primary text-xs">Booked <i class="fa fa-check"></i></label>

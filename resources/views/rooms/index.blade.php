@@ -4,6 +4,15 @@
     View Rooms
 @endsection
 
+@section('search')
+    <form class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Room">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+@endsection
+
 @section('content')
     <h2><i class="fa fa-bed"></i> View Rooms</h2>
     <hr>

@@ -36,6 +36,11 @@
         </tr>
 
         <tr>
+            <th>Last Update By:</th>
+            <td>{{ $booking->user->name }}</td>
+        </tr>
+
+        <tr>
             <th>Booking At</th>
             <td>{{ $booking->start_date }}</td>
         </tr>
@@ -48,7 +53,7 @@
     </table>
 
     {!! Form::open(['route'=> ['booking.destroy', $booking->id], 'method'=>'DELETE']) !!}
-    {!! link_to('/rooms', 'Back',['class'=>'btn btn-success btn-sm']) !!}
+    {!! link_to('/booking', 'Back',['class'=>'btn btn-success btn-sm']) !!}
     {!! link_to_route('booking.edit', 'Edit', $booking->id, ['class'=>'btn btn-info btn-sm']) !!}
     {!! Form::button('Delete',['type','submit','class'=>'btn btn-danger btn-sm', 'onclick'=>'return confirm("Are you sure you want to delete this?")']) !!}
     {!! Form::close() !!}
