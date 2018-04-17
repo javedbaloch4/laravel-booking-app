@@ -6,7 +6,7 @@
 
 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
     {!! Form::label('email') !!}
-    {!! Form::email('email',$client->email, ['class' => 'form-control', 'placeholder' => 'Client Email']) !!}
+    {!! Form::email('email', $client->email, ['class' => 'form-control', 'placeholder' => 'Client Email']) !!}
     <span class="text-danger">{{ $errors->has('email')  ? $errors->first('email') : ''}}</span>
 </div>
 
@@ -18,7 +18,7 @@
 
 <div class="form-group">
     {!! Form::label('image') !!}
-    {!! Form::file('image','',['class' => 'form-control']) !!}
+    {!! Form::file('image', $client->image, ['class' => 'form-control']) !!}
     <span class="text-danger">{{ $errors->has('image') ? $errors->first('image') : '' }}</span>
     <div id="thumb-output"></div>
 </div>

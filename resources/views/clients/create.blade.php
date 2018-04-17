@@ -12,10 +12,10 @@
 
             @include('errors.errors')
 
-            {!! Form::open(['url' => 'clients','files'=>true]) !!}
+            {{ Form::open(['url' => 'clients','files'=>true]) }}
             @include('clients._fields')
             <div class="form-group">
-                {!! Form::submit('Add Client', ['class'=>'btn btn-primary']) !!}
+                {{ Form::submit('Add Client', ['class'=>'btn btn-primary']) }}
                 <a href="/clients" class="btn btn-success">View Clients</a>
             </div>
         </div>
