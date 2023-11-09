@@ -9,7 +9,7 @@ For now this is a basic booking management system for hotels.
 
 ## Installations / Instructions
 
-``` git  clone https://github.com/javedbaloch4/Laravel-Booking.git ```
+``` git  clone https://github.com/javedbaloch4/laravel-booking-app ```
 
  Open `.env` file to configure your `database` and it's `name`, `host`, and `password` 
 
@@ -26,10 +26,10 @@ For now this is a basic booking management system for hotels.
 `localhost:8000`
 
 ## Wiki
-Please view the [wiki](https://github.com/javedbaloch4/Laravel-Booking/wiki) for a list of features.
+Please view the [wiki](https://github.com/javedbaloch4/laravel-booking-app/wiki) for a list of features.
 
 ## Issues
-If you come across any issues please [report them here](https://github.com/javedbaloch4/Laravel-Booking/issues).
+If you come across any issues please [report them here](https://github.com/javedbaloch4/laravel-booking-app/issues).
 
 ## Contributing
  
